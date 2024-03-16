@@ -1,10 +1,12 @@
 const  express = require('express');
 const { connection } = require('./db')
-const { todoRoutes } = require('./routes/todo.route')
+const { todoRoutes } = require('./routes/todo.route');
+const cors = require('cors')
 
 require('dotenv').config();
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 app.use('/todos', todoRoutes)
 
