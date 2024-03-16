@@ -1,5 +1,5 @@
 const express = require('express');
-const { TodoModel } = require('../modal/TodoModal.ts');
+const { TodoModel } = require('../modal/TodoModal');
 
 const todoRoutes = express.Router();
 
