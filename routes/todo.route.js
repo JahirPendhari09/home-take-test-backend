@@ -6,7 +6,7 @@ const todoRoutes = express.Router();
 
 // Get All Todos  
 
-todoRoutes.get('/', async(req: any, res: any) => {
+todoRoutes.get('/', async(req, res) => {
     try{
         const todos = await TodoModel.find();
         res.status(200).send(todos);
@@ -18,7 +18,7 @@ todoRoutes.get('/', async(req: any, res: any) => {
 
 // Add or Create New Todo 
 
-todoRoutes.post('/create', async(req:any,res:any)=>{
+todoRoutes.post('/create', async(req,res)=>{
     const {title} = req.body;
     try{
         const newTodo = new TodoModel({title, status:false});
@@ -32,7 +32,7 @@ todoRoutes.post('/create', async(req:any,res:any)=>{
 
 /// Update perticular todo with the help of there ID
 
-todoRoutes.patch('/update/:id', async(req:any, res:any)=>{
+todoRoutes.patch('/update/:id', async(req, res)=>{
     const { id }= req.params;
     try{
         await TodoModel.findByIdAndUpdate({_id:id},req.body);
@@ -45,7 +45,7 @@ todoRoutes.patch('/update/:id', async(req:any, res:any)=>{
 
 // Delete perticular todo with the help of there ID
 
-todoRoutes.delete('/delete/:id', async(req:any, res:any)=>{
+todoRoutes.delete('/delete/:id', async(req, res)=>{
     const { id }= req.params;
     try{
         await TodoModel.findByIdAndDelete({_id:id});
