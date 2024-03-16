@@ -1,6 +1,6 @@
 const  express = require('express');
-const { connection } = require('./db')
-const { todoRoutes } = require('./routes/todo.route')
+const { connection } = require('./db.ts')
+const { todoRoutes } = require('./routes/todo.route.ts')
 
 require('dotenv').config();
 const app = express();
